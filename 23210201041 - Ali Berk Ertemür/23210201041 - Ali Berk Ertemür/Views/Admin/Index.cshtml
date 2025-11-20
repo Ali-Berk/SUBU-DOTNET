@@ -1,0 +1,128 @@
+﻿@using _23210201041___Ali_Berk_Ertemür.Models;
+@model DistrictFamousPopulationUser
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+<style>
+    .a > * {
+        padding: 10px;
+        border: solid tomato 2px;
+    }
+</style>
+<h1>Listelenen bilgilerin ekleme silme düzenleme işlemi</h1>
+
+<section>
+    <section class="container d-flex mt-4 p-0">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h4>3 yıllık nüfus dağılımı listesi</h4>
+            <table>
+                <thead>
+                    <tr class="a">
+                        <th>Nüfus</th>
+                        <th>Kadın</th>
+                        <th>Erkek</th>
+                        <th>Genel</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                        <th><a class="btn btn-success" href="@Url.Action("CreatePopulation","Admin")">Ekle</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TablePopulations)
+                    {
+
+                        <tr class="a">
+                            <td>@item.Year</td>
+                            <td>@item.WomenPopulation</td>
+                            <td>@item.ManPopulation</td>
+                            <td>@item.OverallPopulation</td>
+                            <td><a href="@Url.Action("UpdatePopulation", "Admin", new { PopulationId = item.PopulationId })" class="btn btn-primary">Düzenle</a></td>
+
+                            <td><a class="btn btn-danger" href="@Url.Action("deletePopulation", "Admin", new { PopulationId = item.PopulationId })">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+    </section>
+    <hr />
+    <section>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <table>
+                <thead>
+                    <tr class="a">
+                        <td>SliderId</td>
+                        <td>Slider Url</td>
+                        <td>Değiştir</td>
+                    </tr>
+                    @foreach (var item in Model.TableSliders)
+                    {
+                        <tr class="a">
+                            <td>@item.SliderId</td>
+                            <td style="">@item.SliderLink</td>
+                            <td><a href="@Url.Action("UpdateSlider","Admin",new {SliderId = item.SliderId})" class="btn btn-primary">Değiştir</a></td>
+                        </tr>
+                    }
+                </thead>
+            </table>
+
+
+        </div>
+    </section>
+    <hr/>
+    <section class="container-fluid d-flex mt-4 p-0">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h3>Şehrin ilçeleri</h3>
+            <table>
+                <thead>
+                    <tr class="a">
+                        <th>İlçe</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                        <th><a class="btn btn-success" href="@Url.Action("CreateDistrict","Admin")">Ekle</a></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TableDistricts)
+                    {
+                        <tr class="a">
+                            <td>@item.DisctrictName</td>
+                            <td><a class="btn btn-primary" href="@Url.Action("UpdateDistrict","Admin", new { districtId = item.DistrictId })">Düzenle</a></td>
+                            <td><a class="btn btn-danger"  href="@Url.Action("DeleteDistrict","Admin")">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            <h3>Şehrin turistik yerleri</h3>
+            <table>
+                <thead>
+                    <tr class="a">
+                        <td>Mekan İsmi</td>
+                        <td>Düzenle</td>
+                        <td>Sil</td>
+                        <th><a class="btn btn-success" href="@Url.Action("CreateFamousPlace","Admin")">Ekle</a></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TableFamousPlaces)
+                    {
+                        <tr class="a">
+                            <td>@item.PlaceName</td>
+                            <td><a class="btn btn-primary" href="@Url.Action("UpdateFamousPlace","Admin", new {placeId = item.PlaceId})">Düzenle</a></td>
+                            <td><a class="btn btn-danger" href="@Url.Action("DeleteFamousPlace","Admin", new {placeId = item.PlaceId})">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+</section>

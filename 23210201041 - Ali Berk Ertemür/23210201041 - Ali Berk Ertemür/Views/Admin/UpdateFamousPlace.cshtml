@@ -1,0 +1,23 @@
+﻿@model _23210201041___Ali_Berk_Ertemür.Models.TableFamousPlace
+@{
+    ViewBag.Title = "UpdateDistrict";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+<div class="card d-flex justify-content-center" style="height:80vh">
+    @using (Html.BeginForm("UpdateDistrict", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        <div class="card-header">
+            <h2>Veri Düzenleme İşlemi</h2>
+            @Html.HiddenFor(m => m.PlaceId)
+        </div>
+        <div class="form-group card-body">
+            <div>
+                <label>Yer ismini giriniz.</label>
+                @Html.TextBoxFor(model => model.PlaceName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PlaceName, "", new { @class = "text-danger" })
+            </div>
+            <div><button type="submit" class="btn btn-success btn-block">Yer adını düzenle</button></div>
+        </div>
+    }
+</div>

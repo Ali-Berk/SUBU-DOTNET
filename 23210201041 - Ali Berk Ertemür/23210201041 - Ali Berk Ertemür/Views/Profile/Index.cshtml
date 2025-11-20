@@ -1,0 +1,56 @@
+﻿@using _23210201041___Ali_Berk_Ertemür.Models;
+@model DistrictFamousPopulationUser
+@{
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+    ViewBag.Title = "Indasdex";
+}
+<style>
+    .a > * {
+        padding: 10px;
+        border: solid tomato 2px;
+    }
+</style>
+<div>
+    <h3>3 yıllık nüfus dağılımı listesi</h3>
+    <table>
+        <thead>
+            <tr class="a">
+                <th>Nüfus</th>
+                <th>Kadın</th>
+                <th>Erkek</th>
+                <th>Genel</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TablePopulations)
+            {
+
+                <tr class="a">
+                    <td>@item.Year</td>
+                    <td>@item.WomenPopulation</td>
+                    <td>@item.ManPopulation</td>
+                    <td>@item.OverallPopulation</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Şehrin ilçeleri tablo olarak en fazla 6 ilçe</h3>
+    <ol>
+        @foreach (var item in Model.TableDistricts)
+        {
+            <li>@item.DisctrictName</li>
+        }
+    </ol>
+</div>
+<div>
+    <h3>Şehrin turistik yerlerinden en fazla 6 tanesi madde olarak işaretli</h3>
+    <ol>
+        @foreach (var item in Model.TableFamousPlaces)
+        {
+            <li>@item.PlaceName</li>
+        }
+
+    </ol>
+</div>

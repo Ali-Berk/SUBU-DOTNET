@@ -1,0 +1,49 @@
+﻿@model IEnumerable<_23210201041___Ali_Berk_Ertemür.Models.TableUser>
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Stylesheet = "~/Content/HomeStyle.css";
+    ViewBag.Script = "~/Content/HomeScript.js";
+}
+<div class="container mt-5">
+    <div class="row col-md-12">
+        <p id="p1" class="limited-paragraph-3 mb-0">Bilecik ili, Marmara Bölgesi'nin Güney Doğusunda; Marmara, Karadeniz, İç Anadolu ve Ege Bölgelerinin kesim noktaları üzerindedir. 39° ve 40° 31’ kuzey enlemleri ile 29° 43’ ve 30° 41’ doğu boylamları arasında bulunmaktadır. İlin bilinen en eski isimleri arasında Agrilion ve Belekoma vardır. Bilecik, Osmanlı İmparatorluğu'nun doğduğu topraklardadır. Sakarya ırmağının etrafında kurulan göletleri ve derelerinin zenginliği ile tanınan yöre antik çağlardan günümüze tarihin izlerini taşır. Doğudan Bolu ve Eskişehir Güneyden Kütahya, Batıdan Bursa, Kuzeyden Sakarya İlleri ile çevrilidir. Bilecik 4321 km²’lik alanı ile Türkiye’nin küçük illerinden biridir. Alan sıralaması bakımından 65. sırada yer almaktadır. Merkez ilçenin yüzölçümü 844 km²’dir.</p>
+        <a id="link1" class="link mt-0 textcontrol" onclick="ShowText('p1','link1')">Devamını Oku...</a>
+    </div>
+    <section class="d-flex justify-content-center">
+        <div id="carousel" class="carousel slide mt-5 w-50 " data-bs-ride="carousel">
+            <!--Carousel tanımı ve isimlendirmesi-->
+            <div class="carousel-indicators">
+                <!--Slider indikatörleri (alttaki konum bildiren çizgiler)-->
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-current="true" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-current="true" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!--Slide içerisindeki alt item tanımı-->
+                <div class="carousel-item active">
+                    
+                    <img src="@ViewBag.Slider1" class="d-block w-100" alt="Bilecik ilinden güzel bir fotoğraf." />
+                </div>
+                <div class="carousel-item">
+                    <img src="@ViewBag.Slider2" class="d-block w-100" alt="Bilecik ilinden güzel bir fotoğraf." />
+                </div>
+                <div class="carousel-item">
+                    <img src="@ViewBag.Slider3" class="d-block w-100" alt="Bilecik ilinden güzel bir fotoğraf." />
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+            
+            
+        </div>
+    </section>
+</div>
+<div class="mt-5">
+    <p>Bilinen ilk isimleri Agrilion ve Belekoma'dır. Daha sonra Bilecik Bizans İmparatorluğu içine girmiştir. Doğu Roma döneminde Belekoma isimi ile bilinmekteydi. Bilecik o zaman kale-sur şehri idi.</p>
+</div>
+
+@*@foreach (var i in Model)
+{
+    <p>a</p>
+    <p>@i.Email</p>
+}*@

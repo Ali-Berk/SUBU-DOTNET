@@ -1,0 +1,22 @@
+﻿@model _23210201041___Ali_Berk_Ertemür.Models.TableFamousPlace
+@{
+    ViewBag.Title = "Create District";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+<div class="card d-flex justify-content-center" style="height:80vh">
+    @using (Html.BeginForm("CreateDistrict", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        <div class="card-header">
+            <h2>İlçe ekleme İşlemi</h2>
+            @Html.HiddenFor(m => m.PlaceId)
+        </div>
+        <div class="form-group card-body">
+            <div>
+                <label>Eklenecek ilçenin ismini giriniz.</label>
+                @Html.TextBoxFor(model => model.PlaceName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PlaceName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
+</div>

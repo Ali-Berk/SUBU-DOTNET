@@ -1,0 +1,33 @@
+﻿@model _23210201041___Ali_Berk_Ertemür.Models.TablePopulation
+@{
+    ViewBag.Title = "UpdatePopulation";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+<div class="card d-flex justify-content-center" style="height:80vh">
+    @using (Html.BeginForm("UpdatePopulation", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        <div class="card-header">
+            <h2>Veri Düzenleme İşlemi</h2>
+            @Html.HiddenFor(m => m.PopulationId)
+        </div>
+        <div class="form-group card-body">
+            <div>
+                <label>Yeni veri yılını giriniz.</label>
+                @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                <label>Yeni Kadın Popülasyonu verisini giriniz</label>
+                @Html.TextBoxFor(model => model.WomenPopulation, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WomenPopulation, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                <label>Yeni Erkek Popülasyonu verisini giriniz</label>
+                @Html.TextBoxFor(model => model.ManPopulation, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ManPopulation, "", new { @class = "text-danger" })
+            </div>
+            <div><button type="submit" class="btn btn-success btn-block">Kaydı düzenle</button></div>
+        </div>
+    }
+</div>
